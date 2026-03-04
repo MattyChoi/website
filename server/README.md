@@ -16,3 +16,6 @@ and to update the `requirements.txt` file, run the following command:
 ```
 pip3 freeze > requirements.txt
 ```
+
+For production purposes, we use the following command:
+

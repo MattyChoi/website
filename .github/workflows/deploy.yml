@@ -18,4 +18,5 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd /home/ec2-user/website
+            chmod +x deploy.sh
             ./deploy.sh

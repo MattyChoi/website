@@ -14,7 +14,7 @@ echo "Restarting FastAPI..."
 sudo systemctl restart fastapi
 
 echo "Building frontend..."
-cd ../frontend
+cd ../client
 npm install
 npm run build
 
