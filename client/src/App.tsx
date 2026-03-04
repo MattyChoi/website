@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, FC, ReactNode, CSSProperties } from "react";
+import { useState, useEffect, useRef, type FC, type ReactNode, type CSSProperties } from "react";
 
 /* ── Fonts ────────────────────────────────────────────────────────────────── */
 const FONTS = `@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Nunito:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');`;
@@ -118,7 +118,7 @@ function useTypingCycle(words: string[], speed = 90, pause = 1800): string {
   return display;
 }
 
-function useFadeIn(): [React.RefObject<HTMLElement>, boolean] {
+function useFadeIn(): [React.RefObject<HTMLElement | null>, boolean] {
   const ref     = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState<boolean>(false);
 
@@ -498,12 +498,6 @@ const App: FC = () => {
         <div className="proj-grid">
           {PROJECTS.map((p: Project) => (
             <div key={p.title} className="proj-card">
-              <iframe
-                src={p.video}
-                title={p.title}
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
               <div className="proj-body">
                 <div className="proj-title">{p.title}</div>
                 <div className="proj-stack">{p.stack}</div>
