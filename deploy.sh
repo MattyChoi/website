@@ -1,22 +1,26 @@
 #!/bin/bash
 
 cd /home/ec2-user/website
-
+            
 echo "Pulling latest code..."
 git pull origin main
 
-echo "Building React frontend..."
-cd client
-npm install
-npm run build
-cd ..
-
-echo "Installing backend dependencies..."
+echo "Setting up backend..."
 cd server
 source venv/bin/activate
 pip install -r requirements.txt
 
-echo "Restarting backend..."
-sudo systemctl restart fastapi 
+echo "Restarting FastAPI..."
+sudo systemctl restart fastapi
 
-echo "Deployment complete."
+echo "Building frontend..."
+cd ../frontend
+npm install
+npm run build
+
+echo "Deploying frontend to Nginx..."
+sudo rm -rf /usr/share/nginx/html/*
+sudo cp -r dist/* /usr/share/nginx/html/
+cd ..
+
+echo "Deployment complete!"
