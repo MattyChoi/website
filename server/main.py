@@ -6,12 +6,14 @@ from dotenv import load_dotenv
 import os
 from openai import OpenAI
 
+from classes.llm import ChatRequest
+
 
 # Load up environment environment variables
 load_dotenv()
 app = FastAPI()
 
-# 
+
 # Configure CORS to allow your frontend to access the backend
 origins = [
     "http://localhost:3000", # Default React port
@@ -26,20 +28,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+# client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-
-@app.post("/api/chat")
-async def chat(req: ChatRequest):
-    completion = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-            {"role": "system", "content": "You are Matthew's AI assistant."},
-            {"role": "user", "content": req.message}
-        ]
-    )
-
-    return {"reply": completion.choices[0].message.content}
 
 @app.get("/api/hello")
 def read_root():
