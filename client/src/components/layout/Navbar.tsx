@@ -40,6 +40,9 @@ export default function Navbar() {
           <NavLink to="/education" className={({ isActive }) => (isActive ? active : link)}>
             Education
           </NavLink>
+          <NavLink to="/spotify-match" className={({ isActive }) => (isActive ? active : link)}>
+            Spotify
+          </NavLink>
         </nav>
 
         <div

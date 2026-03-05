@@ -7,6 +7,8 @@ import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Experience from "./pages/Experience";
 import Education from "./pages/Education";
+import SpotifyMatch from "./pages/SpotifyMatch"
+import Callback from "./pages/Callback";
 
 export default function App() {
   return (
@@ -19,6 +21,8 @@ export default function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/experience" element={<Experience />} />
             <Route path="/education" element={<Education />} />
+            <Route path="/spotify-match" element={<SpotifyMatch />} />
+            <Route path="/callback" element={<Callback />} />
           </Routes>
         </main>
         <Footer />
