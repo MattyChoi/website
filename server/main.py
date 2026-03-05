@@ -40,6 +40,6 @@ app.include_router(spotify.router)
 # client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 
-@app.get("/api/hello")
+@app.get("/hello")
 def read_root():
     return {"message": "Hello from FastAPI backend!"}

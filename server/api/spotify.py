@@ -53,7 +53,7 @@ def compute_similarity(your_items: list, user_items: list) -> float:
 
 
 # API endpoint to fetch spotify similarity objects
-@router.post("/api/spotify/similarity")
+@router.post("/spotify/similarity")
 async def similarity(payload: dict):
     user_token = payload.get("access_token")
     if not user_token:
