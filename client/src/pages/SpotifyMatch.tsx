@@ -26,7 +26,7 @@ export default function SpotifyMatch() {
   async function fetchSimilarity() {
     if (!token) return;
     setLoading(true);
-    const res = await fetch(API_URl + "/api/spotify/similarity", {
+    const res = await fetch(API_URl + "/spotify/similarity", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ access_token: token }),
