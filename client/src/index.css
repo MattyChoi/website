@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+/* Enable class-based dark mode in Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+:root {
+  --navbar-height: 73px;
+}
+
+html, body {
+  @apply bg-white dark:bg-slate-900 transition-colors duration-300;
+}
