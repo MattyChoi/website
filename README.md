@@ -69,5 +69,3 @@ personal-website/
 ├── .gitignore
 └── README.md
 ```
-
-Test
